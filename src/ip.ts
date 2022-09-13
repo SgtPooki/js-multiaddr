@@ -10,7 +10,7 @@ export const isV6 = isIPv6
 export const toBytes = function (ip: string): Uint8Array {
   let offset = 0
   let result
-  ip = ip.trim()
+  ip = ip.toString().trim()
 
   if (isV4(ip)) {
     result = new Uint8Array(offset + 4)
@@ -57,7 +57,7 @@ export const toBytes = function (ip: string): Uint8Array {
   }
 
   if (result == null) {
-    throw new Error(`invalid ip address "${ip}"`)
+    throw new Error(`invalid ip address "${ip}" isV4 ${isV4(ip)} isV6 ${isV6(ip)}`)
   }
 
   return result
